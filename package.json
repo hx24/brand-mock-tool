@@ -1,0 +1,34 @@
+{
+  "name": "brand-mock-tool",
+  "private": false,
+  "version": "0.0.2",
+  "description": "A tool to mock brand data",
+  "type": "module",
+  "main": "./dist/bundle.js",
+  "module": "./dist/bundle.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "npm -C example run dev",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "npm -C example run build && npm -C example run preview"
+  },
+  "dependencies": {
+    "axios": "1.1.3"
+  },
+  "devDependencies": {
+    "vue": "^3.2.45",
+    "@vitejs/plugin-vue": "^3.2.0",
+    "less": "4.1.3",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3",
+    "vite-plugin-dts": "1.7.1",
+    "vue-tsc": "^1.0.9"
+  },
+  "peerDependencies": {
+    "vue": ">=3.0.0"
+  }
+}

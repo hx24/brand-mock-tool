@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button id="btn">开始</button>
+    </div>
+    <iframe
+      src="http://localhost:5173/"
+      frameborder="0"
+      width="800"
+      height="600"
+    ></iframe>
+
+    <script>
+      let flag = false
+      btn.addEventListener('click', () => {
+        const iframe = document.querySelector('iframe')
+        const type = flag ?  'mockTool:stop' : 'mockTool:start'
+        btn.innerText = flag ? '开始' : '停止'
+        flag = !flag
+        iframe.contentWindow.postMessage({ type }, 'http://localhost:5173')
+      })
+
+      window.addEventListener('message', (e) => {
+        if(e.data?.type === 'mockTool:selected') {
+          console.log(e.data?.data)
+          const id = e.data?.data
+        }
+      })
+    </script>
+  </body>
+</html>
