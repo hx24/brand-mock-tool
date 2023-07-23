@@ -1,5 +1,5 @@
-import Vue, { App } from "vue";
-import MockDevtool from './MockDevtool/MockDevtool.vue'
+import { App } from "vue";
+// import MockDevtool from './MockDevtool/MockDevtool.vue'
 import inspector from "./inspector";
 import installMock from './utils/directive'
 
@@ -11,4 +11,4 @@ export default {
 };
 
 
-export { MockDevtool }
+// export { MockDevtool }

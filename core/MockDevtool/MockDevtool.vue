@@ -13,6 +13,7 @@ function initKeyBoardEvent() {
     // 拦截ctrl+f12
     if (e.ctrlKey && e.key === 'F12') {
       e.preventDefault()
+      // @ts-ignore
       if (inspector.devtool?.visible) {
         inspector.hideDevtool()
         inspector.stopSelecting()

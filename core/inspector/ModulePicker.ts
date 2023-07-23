@@ -13,13 +13,13 @@ export class ModulePicker {
 
   startSelecting(options: ModulePickerOptions = {}) {
     this.onSelected = options.onSelected
-    window.addEventListener('mouseover', this.elementMouseOver, true)
-    window.addEventListener('click', this.elementClicked, true)
-    window.addEventListener('mouseout', this.cancelEvent, true)
-    window.addEventListener('mouseenter', this.cancelEvent, true)
-    window.addEventListener('mouseleave', this.cancelEvent, true)
-    window.addEventListener('mousedown', this.cancelEvent, true)
-    window.addEventListener('mouseup', this.cancelEvent, true)
+    window.addEventListener('mouseover', this.elementMouseOver, { capture: true, passive: false })
+    window.addEventListener('click', this.elementClicked, { capture: true, passive: false })
+    window.addEventListener('mouseout', this.cancelEvent, { capture: true, passive: false })
+    window.addEventListener('mouseenter', this.cancelEvent, { capture: true, passive: false })
+    window.addEventListener('mouseleave', this.cancelEvent, { capture: true, passive: false })
+    window.addEventListener('mousedown', this.cancelEvent, { capture: true, passive: false })
+    window.addEventListener('mouseup', this.cancelEvent, { capture: true, passive: false })
   }
 
   stopSelecting() {
@@ -54,7 +54,7 @@ export class ModulePicker {
   }
 
   findRelatedModule(el: HTMLElement) {
-    while (!getElementMockId(el) && el.parentElement ) {
+    while (!getElementMockId(el) && el.parentElement) {
       el = el.parentElement
     }
     return el === document.documentElement ? null : el
